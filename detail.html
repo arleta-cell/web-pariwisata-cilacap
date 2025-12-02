@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Detail Wisata — Pariwisata Cilacap</title>
+
+  <style>
+    body {
+      font-family: Inter, Arial;
+      margin: 20px;
+      background: #f7fbff;
+      color: #111;
+    }
+
+    .card {
+      max-width: 850px;
+      margin: auto;
+      background: #fff;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(7,37,64,0.06);
+    }
+
+    img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    h1 { margin: 12px 0 6px; }
+
+    .meta {
+      color: #666;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      background: #eef6ff;
+      color: #036;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    ul { padding-left: 18px; }
+    ul li { margin: 5px 0; }
+
+    footer {
+      text-align: center;
+      color: #666;
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    @media (max-width:600px) {
+      img { height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back">← Kembali</a>
+
+  <div class="card" id="detailCard"></div>
+
+  <footer>Detail Wisata — Pariwisata Cilacap</footer>
+
+<script>
+const WISATA = [
+  {
+    id: 1,
+    name: "Pantai Teluk Penyu",
+    category: "Pantai",
+    location: "Cilacap",
+    description: "Pantai populer dengan pasir hitam dan pemandangan matahari terbenam.",
+    budaya: "Sering digunakan masyarakat untuk acara adat sederhana dan berkumpul.",
+    sejarah: "Pantai ini telah menjadi lokasi aktivitas pelabuhan sejak masa kolonial.",
+    image: "teluk penyu.jpg"
+  },
+  {
+    id: 2,
+    name: "Pulau Nusakambangan",
+    category: "Sejarah",
+    location: "Barat Cilacap",
+    description: "Pulau bersejarah dengan benteng dan panorama laut.",
+    budaya: "Memiliki beberapa cerita rakyat dan ritual tradisional masyarakat lokal.",
+    sejarah: "Pulau ini terkenal karena benteng-benteng peninggalan Belanda dan sejarah penjara.",
+    image: "pulau nusakambangan.jpg"
+  },
+  {
+    id: 3,
+    name: "Benteng Pendem Cilacap",
+    category: "Sejarah",
+    location: "Cilacap Kota",
+    description: "Benteng peninggalan Belanda yang masih kokoh.",
+    budaya: "Sering digunakan untuk acara budaya sekolah dan komunitas.",
+    sejarah: "Dibangun pada abad ke-19 oleh Belanda sebagai pertahanan militer.",
+    image: "benteng pendem.jpg"
+  },
+  {
+    id: 4,
+    name: "Gunung Selok",
+    category: "Gunung",
+    location: "Cilacap",
+    description: "Gunung Selok adalah perbukitan di Kabupaten Cilacap, Jawa Tengah, yang terkenal sebagai destinasi wisata alam dan spiritual.",
+    budaya: "Budaya Gunung Selok di Cilacap sangat lekat dengan spiritualitas, mistik, dan wisata religi.",
+    sejarah: "Gunung Selok memiliki sejarah yang kaya dengan mitos dan legenda, termasuk cerita tentang bunga wijayakusuma, serta digunakan sebagai tempat ziarah dan pertapaan yang sakral.",
+    image: "gunung selok.jpg"
+  },
+  {
+    id: 5,
+    name: "Curug Cimandaway",
+    category: "Gunung",
+    location: "Cilacap Selatan",
+    description: "Spot foto dengan pemandangan air terjun yang indah.",
+    budaya: "Sering menjadi lokasi kegiatan komunitas alam seperti camping, jelajah hutan, dan acara kebersihan lingkungan, terutama saat musim liburan.",
+    sejarah: "Tidak ada catatan sejarah resmi mengenai Curug Cimandaway, namun terdapat cerita atau mitos lokal yang berkembang di masyarakat setempat. Mitos tersebut menyebutkan bahwa curug ini memiliki berkah khusus untuk hubungan asmara, bahkan diyakini dapat membantu mempertemukan jodoh atau membuat hubungan langgeng. ",
+    image: "curug cimendaway.jpg"
+  },
+  {
+    id: 6,
+    name: "Pantai Widarapayung",
+    category: "Pantai",
+    location: "Cilacap Barat",
+    description: "Pantai tenang dengan pasir halus, cocok untuk bersantai.",
+    budaya: "Sering dipakai untuk acara sedekah laut setiap tahun.",
+    sejarah: "Salah satu pantai yang berkembang sejak awal 2000-an.",
+    image: "pantai widarapayung.jpg"
+  },
+  {
+    id: 7,
+    name: "Kampung Laut",
+    category: "Budaya",
+    location: "Cilacap",
+    description: "Wilayah pesisir dengan kehidupan masyarakat tradisional di kawasan laguna Segara Anakan.",
+    budaya: "Kampung Laut Cilacap berpusat pada kehidupan nelayan dan keterkaitan erat dengan laut, termasuk tradisi seperti sedekah laut, serta aktivitas ekonomi seperti pengolahan mangrove menjadi berbagai produk.",
+    sejarah: "Sejarah Kampung Laut Cilacap dimulai sekitar tahun 1600-an saat prajurit Kerajaan Mataram ditempatkan di sana untuk menjaga pelabuhan.",
+    image: "kampung laut.jpg"
+  }
+];
+
+
+function getQueryParam(name){
+  const ps = new URLSearchParams(location.search);
+  return ps.get(name);
+}
+
+const id = Number(getQueryParam('id')) || 0;
+const w = WISATA.find(x => x.id === id);
+const detailCard = document.getElementById('detailCard');
+
+if(!w){
+  detailCard.innerHTML = '<h2>Wisata tidak ditemukan</h2><p>ID tidak valid atau data belum tersedia.</p>';
+} else {
+  detailCard.innerHTML = `
+    <img src="${w.image}" alt="${w.name}">
+    <h1>${w.name}</h1>
+    <div class="meta">${w.location} • ${w.category}</div>
+    <p>${w.description}</p>
+
+    <hr style="margin:14px 0">
+
+    <p><strong>Nama Wisata:</strong> ${w.name}</p>
+    <p><strong>Lokasi:</strong> ${w.location}</p>
+    <p><strong>Kategori:</strong> ${w.category}</p>
+    <p><strong>Budaya:</strong> ${w.budaya}</p>
+    <p><strong>Sejarah:</strong> ${w.sejarah}</p>
+  `;
+}
+</script>
+</body>
+</html>

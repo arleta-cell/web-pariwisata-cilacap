@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pariwisata Cilacap — Aulia Dwi Arleta</title>
+  <link rel="stylesheet" href="arleta.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Pariwisata <span class="brand-dot">Cilacap</span></div>
+    <nav class="nav-desktop">
+      <a href="#" class="nav-link active" data-page="home">Beranda</a>
+      <a href="#" class="nav-link" data-page="wisata">Wisata</a>
+      <a href="#" class="nav-link" data-page="favorit">Favorit</a>
+      <a href="#" class="nav-link" data-page="profil">Profil</a>
+      <a href="#" class="nav-link" data-page="kontak">Kontak</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="btn-open-sidebar" class="icon-btn" aria-label="menu">☰</button>
+      <button id="btn-login" class="btn small">Login</button>
+      <button id="btn-logout" class="btn small" style="display:none">Logout</button>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR MOBILE -->
+<aside id="sidebar" class="sidebar" aria-hidden="true">
+  <button id="btn-close-sidebar" class="close-sidebar">✕</button>
+  <nav class="sidebar-nav">
+    <a href="#" class="slink" data-page="home">BERANDA</a>
+    <a href="#" class="slink" data-page="wisata">WISATA</a>
+    <a href="#" class="slink" data-page="favorit">FAVORIT</a>
+    <a href="#" class="slink" data-page="profil">PROFIL</a>
+    <a href="#" class="slink" data-page="kontak">KONTAK</a>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main class="app-container">
+
+<!-- BERANDA -->
+<section id="home" class="page page-active">
+  <div class="page-inner home-content">
+    <h1>Selamat Datang di Pariwisata Cilacap</h1>
+
+    <p class="lead">
+      Cilacap adalah kota yang kaya akan keindahan alam, keragaman budaya, serta pesona pesisir yang menenangkan.
+      Dari garis pantai yang membentang luas, ombak Samudra Hindia yang megah, hingga keramahan warganya, semua menyatu
+      membentuk karakter kota yang hangat dan berkesan.
+      <br><br>
+      Keindahan Cilacap tidak hanya terlihat dari pantai-pantai ikoniknya seperti Teluk Penyu dan Nusakambangan, tetapi
+      juga dari pesona alam tersembunyi, kuliner khas yang menggugah selera, serta sejarah panjang yang masih hidup
+      hingga kini.
+      <br><br>
+      Setiap sudut Cilacap memiliki daya tariknya sendiri, mulai dari benteng-benteng bersejarah, spot foto alam yang
+      memanjakan mata, hingga pusat aktivitas masyarakat yang penuh warna. Semua itu menjadikan Cilacap sebagai kota
+      yang unik, kaya, dan penuh cerita.
+      <br><br>
+      Melalui website ini, kamu diajak menjelajahi berbagai destinasi wisata terbaik di Cilacap. Temukan rekomendasi
+      tempat menarik, lokasi foto favorit, hingga pengalaman seru yang hanya bisa kamu temukan di kota pesisir yang
+      mempesona ini.
+      <br><br>
+      Yuk mulai perjalananmu menjelajahi keindahan Cilacap!
+    </p>
+
+    <div class="cta-row">
+      <button class="btn" data-page="wisata">Jelajahi Wisata</button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- WISATA -->
+  <section id="wisata" class="page">
+    <div class="page-inner">
+      <h2>Wisata di Cilacap</h2>
+      <div class="search-row">
+        <input id="searchInput" placeholder="Cari nama wisata..." />
+        <button id="clearSearch" class="icon-btn" title="Bersihkan">✕</button>
+      </div>
+      <div id="categories" class="categories"></div>
+      <div id="cardsContainer" class="grid"></div>
+      <div id="notFound" class="notfound" style="display:none">Wisata tidak ditemukan</div>
+    </div>
+  </section>
+
+  <!-- FAVORIT -->
+  <section id="favorit" class="page">
+    <div class="page-inner">
+      <h2>Tempat Wisata Favorite Saya</h2>
+      <div id="favoritesList" class="fav-list">
+        <div style="color:#666">Belum ada favorite. (Login terlebih dahulu untuk menambah.)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIL -->
+<section id="profil" class="page">
+  <div class="page-inner">
+    <h2>Profil</h2>
+    <div class="profile-card">
+      <img src="logo cilacap.jpg" alt="Foto Aulia" class="profile-pic">
+      <div class="profile-info">
+        <h3>KOTA CILACAP JAWA TENGAH</h3>
+        <p>Cilacap adalah sebuah kota pesisir yang terletak di ujung selatan Provinsi Jawa Tengah, berbatasan langsung dengan Samudra Hindia. Dikenal dengan pantai-pantainya yang memukau, pulau Nusakambangan, serta kekayaan budaya dan kuliner khas, Cilacap menjadi salah satu daerah yang menawarkan pesona alam dan sejarah yang unik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="page">
+    <div class="page-inner">
+      <h2>Kontak Kritik & Saran</h2>
+      <form id="contactForm" class="contact-form">
+        <input id="contactName" placeholder="Nama Pengguna" required />
+        <input id="contactEmail" type="email" placeholder="Email" required />
+        <textarea id="contactMessage" rows="5" placeholder="Pesan atau Saran" required></textarea>
+        <div class="form-row">
+          <button type="submit" class="btn">Kirim</button>
+          <div id="contactNotice" class="contact-notice"></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  &copy; <span id="year"></span> Pariwisata Cilacap — Dibuat oleh Aulia Dwi Arleta
+</footer>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal" aria-hidden="true">
+  <div class="modal-panel small">
+    <button id="loginClose" class="close-modal">✕</button>
+    <h3>Login Sederhana</h3>
+    <p class="notice">Login terlebih dahulu untuk menambah favorite.</p>
+    <form id="loginForm">
+      <input id="username" placeholder="Username" required />
+      <input id="password" type="password" placeholder="Password" required />
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+        <button type="button" id="loginCancel" class="btn ghost">Batal</button>
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+// =========================
+// DATA WISATA
+// =========================
+const WISATA = [
+  {
+    id: 1,
+    name: "Pantai Teluk Penyu",
+    category: "Pantai",
+    location: "Cilacap",
+    description: "Pantai populer dengan pasir hitam dan pemandangan matahari terbenam.",
+    budaya: "Sering digunakan masyarakat untuk acara adat sederhana dan berkumpul.",
+    sejarah: "Pantai ini telah menjadi lokasi aktivitas pelabuhan sejak masa kolonial.",
+    image: "teluk penyu.jpg"
+  },
+  {
+    id: 2,
+    name: "Pulau Nusakambangan",
+    category: "Sejarah",
+    location: "Barat Cilacap",
+    description: "Pulau bersejarah dengan benteng dan panorama laut.",
+    budaya: "Memiliki beberapa cerita rakyat dan ritual tradisional masyarakat lokal.",
+    sejarah: "Pulau ini terkenal karena benteng-benteng peninggalan Belanda dan sejarah penjara.",
+    image: "pulau nusakambangan.jpg"
+  },
+  {
+    id: 3,
+    name: "Benteng Pendem Cilacap",
+    category: "Sejarah",
+    location: "Cilacap Kota",
+    description: "Benteng peninggalan Belanda yang masih kokoh.",
+    budaya: "Sering digunakan untuk acara budaya sekolah dan komunitas.",
+    sejarah: "Dibangun pada abad ke-19 oleh Belanda sebagai pertahanan militer.",
+    image: "benteng pendem.jpg"
+  },
+  {
+    id: 4,
+    name: "Gunung Selok",
+    category: "Gunung",
+    location: "Cilacap",
+    description: "Gunung Selok adalah perbukitan di Kabupaten Cilacap, Jawa Tengah, yang terkenal sebagai destinasi wisata alam dan spiritual.",
+    budaya: "Budaya Gunung Selok di Cilacap sangat lekat dengan spiritualitas, mistik, dan wisata religi.",
+    sejarah: "Gunung Selok memiliki sejarah yang kaya dengan mitos dan legenda, termasuk cerita tentang bunga wijayakusuma, serta digunakan sebagai tempat ziarah dan pertapaan yang sakral.",
+    image: "gunung selok.jpg"
+  },
+  {
+    id: 5,
+    name: "Pantai Widarapayung",
+    category: "Pantai",
+    location: "Cilacap Barat",
+    description: "Pantai tenang dengan pasir halus, cocok untuk bersantai.",
+    budaya: "Sering dipakai untuk acara sedekah laut setiap tahun.",
+    sejarah: "Salah satu pantai yang berkembang sejak awal 2000-an.",
+    image: "pantai widarapayung.jpg"
+  },
+  {
+    id: 6,
+    name: "Kampung Laut",
+    category: "Budaya",
+    location: "Cilacap",
+    description: "Wilayah pesisir dengan kehidupan masyarakat tradisional di kawasan laguna Segara Anakan.",
+    budaya: "Kampung Laut Cilacap berpusat pada kehidupan nelayan dan keterkaitan erat dengan laut, termasuk tradisi seperti sedekah laut, serta aktivitas ekonomi seperti pengolahan mangrove menjadi berbagai produk.",
+    sejarah: "Kampung Laut Cilacap dimulai sekitar tahun 1600-an saat prajurit Kerajaan Mataram ditempatkan di sana untuk menjaga pelabuhan.",
+    image: "kampung laut.jpg"
+  }
+];
+
+
+// =========================
+// SELECTOR & INISIALISASI
+// =========================
+const pages = document.querySelectorAll('.page');
+const navLinks = document.querySelectorAll('.nav-link');
+const sidebar = document.getElementById('sidebar');
+const searchInput = document.getElementById('searchInput');
+const cardsContainer = document.getElementById('cardsContainer');
+const notFound = document.getElementById('notFound');
+const categoriesEl = document.getElementById('categories');
+const favoritesListEl = document.getElementById('favoritesList');
+const yearSpan = document.getElementById('year');
+yearSpan.textContent = new Date().getFullYear();
+
+// =========================
+// SHOW PAGE
+// =========================
+function showPage(pageId){
+  pages.forEach(p => p.classList.toggle('page-active', p.id === pageId));
+  navLinks.forEach(a => a.classList.toggle('active', a.dataset.page === pageId));
+}
+showPage('home');
+
+document.querySelectorAll('[data-page]').forEach(el=>{
+  el.addEventListener('click', e=>{
+    e.preventDefault();
+    closeSidebar();
+    showPage(el.dataset.page);
+  });
+});
+
+document.getElementById('btn-open-sidebar').onclick=()=> sidebar.classList.add('open');
+document.getElementById('btn-close-sidebar').onclick=()=> closeSidebar();
+function closeSidebar(){ sidebar.classList.remove('open'); }
+
+// =========================
+// RENDER KATEGORI
+// =========================
+const categories = ["Semua","Pantai","Gunung","Budaya","Sejarah"];
+let activeCategory = "Semua";
+function renderCategories(){
+  categoriesEl.innerHTML = '';
+  categories.forEach(cat=>{
+    const btn = document.createElement('button');
+    btn.className = 'chip' + (cat===activeCategory?' active':'');
+    btn.textContent = cat;
+    btn.onclick = ()=>{
+      activeCategory = cat;
+      renderCategories();
+      filterAndRender();
+    };
+    categoriesEl.appendChild(btn);
+  });
+}
+renderCategories();
+
+// =========================
+// FAVORITE STORAGE
+// =========================
+const LS_KEY = 'cilacap_favorites_v1';
+function getFavorites(){return JSON.parse(localStorage.getItem(LS_KEY)||'[]');}
+function saveFavorites(arr){localStorage.setItem(LS_KEY,JSON.stringify(arr));}
+function isLoggedIn(){return sessionStorage.getItem('cilacap_logged')==='1';}
+
+function renderFavorites(){
+  const fav = getFavorites();
+  favoritesListEl.innerHTML='';
+  if(fav.length===0){
+    favoritesListEl.innerHTML='<div style="color:#666">Belum ada favorite. (Login terlebih dahulu untuk menambah.)</div>';
+    return;
+  }
+  fav.forEach(id=>{
+    const w=WISATA.find(x=>x.id===id);
+    if(!w)return;
+    const el=document.createElement('div');
+    el.className='fav-item';
+    el.innerHTML=`
+      <img src="${w.image}" alt="${w.name}">
+      <div class="fav-info"><strong>${w.name}</strong><div class="muted">${w.location}</div></div>
+      <button class="btn small remove-fav" data-id="${w.id}">Hapus</button>`;
+    favoritesListEl.appendChild(el);
+  });
+  document.querySelectorAll('.remove-fav').forEach(btn=>{
+    btn.onclick=()=>{
+      saveFavorites(getFavorites().filter(x=>x!==Number(btn.dataset.id)));
+      renderFavorites();
+    };
+  });
+}
+
+// =========================
+// RENDER KARTU WISATA
+// =========================
+function createCard(w){
+  const c=document.createElement('div');
+  c.className='card';
+  c.innerHTML=`
+    <img src="${w.image}" alt="${w.name}">
+    <div class="card-body">
+      <h3>${w.name}</h3>
+      <div class="meta">${w.location} • ${w.category}</div>
+      <div class="card-actions">
+        <button class="btn detail-btn" data-id="${w.id}">Detail</button>
+        <button class="btn outline fav-btn" data-id="${w.id}">Tambah ke Favorite</button>
+      </div>
+    </div>`;
+  return c;
+}
+
+// =========================
+// FILTER & RENDER
+// =========================
+function filterAndRender(){
+  const q=searchInput.value.trim().toLowerCase();
+  let filtered=WISATA.filter(w=>activeCategory==='Semua'||w.category===activeCategory);
+  if(q)filtered=filtered.filter(w=>w.name.toLowerCase().includes(q));
+  cardsContainer.innerHTML='';
+  if(filtered.length===0)notFound.style.display='block';
+  else{
+    notFound.style.display='none';
+    filtered.forEach(w=>cardsContainer.appendChild(createCard(w)));
+  }
+  attachCardListeners();
+}
+searchInput.oninput=filterAndRender;
+document.getElementById('clearSearch').onclick=()=>{searchInput.value='';filterAndRender();};
+
+// =========================
+// DETAIL & FAVORIT
+// =========================
+function attachCardListeners(){
+  document.querySelectorAll('.detail-btn').forEach(btn=>{
+    btn.onclick=()=>window.open(`detail.html?id=${btn.dataset.id}`,'_blank');
+  });
+  document.querySelectorAll('.fav-btn').forEach(btn=>{
+    btn.onclick=()=>{
+      const id=Number(btn.dataset.id);
+      if(!isLoggedIn()){alert('Anda harus login terlebih dahulu.');return openLoginModal();}
+      const fav=getFavorites();
+      if(fav.includes(id))return alert('Sudah ada di favorite.');
+      fav.push(id);saveFavorites(fav);renderFavorites();
+      alert('Berhasil ditambahkan ke Favorite!');
+    };
+  });
+}
+
+// =========================
+// LOGIN LOGIC
+// =========================
+const loginModal=document.getElementById('loginModal');
+const btnLogin=document.getElementById('btn-login');
+const btnLogout=document.getElementById('btn-logout');
+btnLogin.onclick=openLoginModal;
+document.getElementById('loginClose').onclick=closeLoginModal;
+document.getElementById('loginCancel').onclick=closeLoginModal;
+
+function openLoginModal(){loginModal.classList.add('open');}
+function closeLoginModal(){loginModal.classList.remove('open');}
+document.getElementById('loginForm').onsubmit=(e)=>{
+  e.preventDefault();
+  const u=document.getElementById('username').value.trim();
+  if(!u)return alert('Isi username!');
+  sessionStorage.setItem('cilacap_logged','1');
+  sessionStorage.setItem('cilacap_user',u);
+  updateAuthUI();closeLoginModal();
+  alert('Login berhasil. Selamat datang, '+u+'!');
+};
+btnLogout.onclick=()=>{
+  sessionStorage.clear();updateAuthUI();alert('Anda telah logout.');
+};
+function updateAuthUI(){
+  if(isLoggedIn()){btnLogin.style.display='none';btnLogout.style.display='inline-block';}
+  else{btnLogin.style.display='inline-block';btnLogout.style.display='none';}
+}
+
+// =========================
+// KONTAK
+// =========================
+const contactForm=document.getElementById('contactForm');
+contactForm.onsubmit=(e)=>{
+  e.preventDefault();
+  const entry={
+    name:document.getElementById('contactName').value.trim(),
+    email:document.getElementById('contactEmail').value.trim(),
+    msg:document.getElementById('contactMessage').value.trim(),
+    ts:new Date().toISOString()
+  };
+  const KEY='cilacap_contact_entries';
+  const arr=JSON.parse(sessionStorage.getItem(KEY)||'[]');
+  arr.push(entry);
+  sessionStorage.setItem(KEY,JSON.stringify(arr));
+  const n=document.getElementById('contactNotice');
+  n.textContent='Terima kasih atas saran Anda!';
+  contactForm.reset();setTimeout(()=>n.textContent='',3000);
+};
+
+// =========================
+// INISIALISASI
+// =========================
+updateAuthUI();
+filterAndRender();
+renderFavorites();
+</script>
+
+</body>
+</html>
